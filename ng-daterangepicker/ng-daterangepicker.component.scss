@@ -2,7 +2,6 @@ $mainColor: #17b2eb;
 $tableBackground: #f2f2f2;
 
 .ng-date-range-picker {
-
   &-container {
     width: 21em;
     font-family: sans-serif;
@@ -26,6 +25,9 @@ $tableBackground: #f2f2f2;
       text-align: justify;
       white-space: nowrap;
       font-weight: 300;
+    }
+    &-label +  &-content {
+      margin-top: 0.625em;
     }
   }
   &-footer {
@@ -62,6 +64,8 @@ $tableBackground: #f2f2f2;
   &-nav {
     width: 100%;
     display: flex;
+    padding: 0 1em;
+    box-sizing: border-box;
     &-btn {
       border: none;
       background: none;
@@ -70,7 +74,7 @@ $tableBackground: #f2f2f2;
       font-family: monospace;
       font-weight: 800;
       transform: scaleY(1.6);
-      line-height: 1.6em;
+      line-height: 1.5em;
       padding: 0;
       margin: 0;
       outline: none;
@@ -93,31 +97,33 @@ $tableBackground: #f2f2f2;
     &-row {
       display: flex;
       width: 100%;
-      margin: 5px 0;
+    }
+    &-row + &-row {
+      margin-top: calc(1em / 4);
     }
     &-cell {
       width: 3em;
       height: 3em;
       text-align: center;
-      border-top: 2px transparent solid;
-      border-bottom: 2px transparent solid;
+      border-top: calc(1em / 8) transparent solid;
+      border-bottom: calc(1em / 8) transparent solid;
       font-family: inherit;
       &.last-month, &.next-month {
         color: #c1c1c1;
       }
       &.in-range {
-        border-top: 2px $mainColor solid;
-        border-bottom: 2px $mainColor solid;
+        border-top: calc(1em / 8) $mainColor solid;
+        border-bottom: calc(1em / 8) $mainColor solid;
         background-color: lighten($mainColor, 30%);
         color: black;
       }
       &.first-in-range {
-        border-left: 1px $mainColor solid;
-        border-radius: 100px 0 0 100px;
+        border-left: calc(1em / 8) $mainColor solid;
+        border-radius: 3em 0 0 3em;
       }
       &.last-in-range {
-        border-right: 1px $mainColor solid;
-        border-radius: 0 100px 100px 0;
+        border-right: calc(1em / 8) $mainColor solid;
+        border-radius: 0 3em 3em 0;
       }
       &.first-in-range, &.last-in-range {
         color: white;
@@ -125,7 +131,7 @@ $tableBackground: #f2f2f2;
       &.first-in-range &-value,
       &.last-in-range &-value {
         background-color: $mainColor;
-        border-radius: 100px;
+        border-radius: 3em;
       }
       &-value {
         width: calc(3em / 0.8);

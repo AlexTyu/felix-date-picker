@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CalendarDay } from './ng-date-range-picker-calendar-day.interface';
 import { CalendarView } from './ng-date-range-picker-calendar-view.interface';
 
@@ -12,7 +12,9 @@ import { CalendarView } from './ng-date-range-picker-calendar-view.interface';
 export class NgDaterangepickerComponent implements OnInit {
 
   @Input() startDate: Date = new Date('2017/10/05');
+  @Output() startDateChange: EventEmitter<Date> = new EventEmitter();
   @Input() endDate: Date = new Date('2017/10/15');
+  @Output() endDateChange: EventEmitter<Date> = new EventEmitter();
 
   editing = false;
   calendar: CalendarView = {} as CalendarView;
@@ -35,6 +37,8 @@ export class NgDaterangepickerComponent implements OnInit {
     }
     this.updateCalendarDays();
     this.updateDisplayValue();
+    this.startDateChange.emit(this.startDate);
+    this.endDateChange.emit(this.endDate);
   }
 
   public onCalendarBack() {
