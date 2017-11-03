@@ -1,4 +1,7 @@
-# ng-daterangepicker
+# felix-date-picker
+
+## Demo
+[Link](https://s3.amazonaws.com/public.inpwrd.com/assets/felix/date-picker-demo/index.html)
 
 ## Installation
 
