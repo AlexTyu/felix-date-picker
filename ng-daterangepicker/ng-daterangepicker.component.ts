@@ -13,8 +13,8 @@ const CSS_CLASS_NAME: string = 'ng-date-range-picker';
 
 export class NgDaterangepickerComponent implements OnInit {
 
-  @Input() startDate: Date = new Date();
-  @Input() endDate:   Date = new Date();
+  @Input() startDate: Date = new Date(Date.now());
+  @Input() endDate:   Date = new Date(Date.now());
 
   @Output() startDateChange:  EventEmitter<Date> = new EventEmitter();
   @Output() endDateChange:    EventEmitter<Date> = new EventEmitter();
@@ -27,6 +27,7 @@ export class NgDaterangepickerComponent implements OnInit {
   public calendar: CalendarView = {} as CalendarView;
 
   public resetCalendar() {
+
     // console.log(this._startDate, this.startDate);
   }
 
@@ -42,12 +43,14 @@ export class NgDaterangepickerComponent implements OnInit {
   }
 
   public ngOnInit() {
+    this.startDate = moment(this.startDate).startOf('day').toDate();
+    this.endDate = moment(this.startDate).startOf('day').toDate();
     this.updateInitialDates();
-    this.updateCalendar();
+    this.updateCalendar(this.endDate);
   }
 
   public onDayClick(day: CalendarDay) {
-    if (!this.editing) {
+    if (!this.editing && day.date < this.endDate) {
       this.startDate = day.date;
       this.editing = true;
     } else {
@@ -82,8 +85,9 @@ export class NgDaterangepickerComponent implements OnInit {
       'in-range': day.inRange,
       'first-in-range': day.firstInRange,
       'last-in-range': day.lastInRange,
+      'only-selected': day.firstInRange && day.lastInRange,
       'last-month': day.month < this.calendar.month,
-      'next-month': day.month > this.calendar.month
+      'next-month': day.month > this.calendar.month,
     };
   }
 

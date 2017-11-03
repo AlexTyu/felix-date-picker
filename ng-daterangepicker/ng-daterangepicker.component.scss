@@ -125,6 +125,9 @@ $tableBackground: #f2f2f2;
         border-right: calc(1em / 8) $mainColor solid;
         border-radius: 0 3em 3em 0;
       }
+      &.only-selected {
+        border-radius: 3em;
+      }
       &.first-in-range, &.last-in-range {
         color: white;
       }
