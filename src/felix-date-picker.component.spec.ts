@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgDaterangepickerComponent } from './felix-date-picker.component';
+import { FelixDatePickerComponent } from './felix-date-picker.component';
 
-describe('NgDaterangepickerComponent', () => {
-  let component: NgDaterangepickerComponent;
-  let fixture: ComponentFixture<NgDaterangepickerComponent>;
+describe('FelixDatePickerComponent', () => {
+  let component: FelixDatePickerComponent;
+  let fixture: ComponentFixture<FelixDatePickerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NgDaterangepickerComponent ]
+      declarations: [ FelixDatePickerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NgDaterangepickerComponent);
+    fixture = TestBed.createComponent(FelixDatePickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
