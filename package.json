@@ -1,19 +1,19 @@
 {
-  "name": "ng-daterangepicker",
+  "name": "felix-date-picker",
   "version": "1.0.0",
   "description": "",
-  "main": "ng-datepicker/ng-datepicker.module.ts",
+  "main": "main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sergey-samusenko/ng-daterangepicker.git"
+    "url": "git+https://github.com/sergey-samusenko/felix-date-picker.git"
   },
-  "author": "",
+  "author": "Sergey Samusenko",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sergey-samusenko/ng-daterangepicker/issues"
+    "url": "git+https://github.com/sergey-samusenko/felix-date-picker/issues"
   },
-  "homepage": "https://github.com/sergey-samusenko/ng-daterangepicker#readme"
+  "homepage": "git+https://github.com/sergey-samusenko/felix-date-picker#readme"
 }
