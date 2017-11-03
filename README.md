@@ -1,7 +1,7 @@
 # felix-date-picker
 
 ## Demo
-[Link](https://s3.amazonaws.com/public.inpwrd.com/assets/felix/date-picker-demo/index.html)
+<a href="https://s3.amazonaws.com/public.inpwrd.com/assets/felix/date-picker-demo/index.html" target="_blank">Click here</a>
 
 ## Installation
 
