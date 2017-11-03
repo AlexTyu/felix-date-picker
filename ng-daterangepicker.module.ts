@@ -10,6 +10,6 @@ import { ToMonthStringPipe } from './to-month-string.pipe';
     CommonModule
   ],
   declarations: [NgDaterangepickerComponent, ToWeekdayPipe, SplitByWeeksPipe, ToMonthStringPipe],
-  exports: [NgDaterangepickerComponent]
+  exports: [NgDaterangepickerComponent, NgDaterangepickerComponent]
 })
 export class NgDaterangepickerModule { }
