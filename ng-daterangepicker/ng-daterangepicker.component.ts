@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
 import * as moment from 'moment';
+import { Component, OnInit, Input } from '@angular/core';
 import { CalendarDay } from './ng-date-range-picker-calendar-day.interface';
 import { CalendarView } from './ng-date-range-picker-calendar-view.interface';
 
@@ -8,7 +8,6 @@ import { CalendarView } from './ng-date-range-picker-calendar-view.interface';
   templateUrl: './ng-daterangepicker.component.html',
   styleUrls: ['./ng-daterangepicker.component.scss']
 })
-
 
 export class NgDaterangepickerComponent implements OnInit {
 
@@ -19,19 +18,51 @@ export class NgDaterangepickerComponent implements OnInit {
   calendar: CalendarView = {} as CalendarView;
   cssClassName: string = 'ng-date-range-picker';
 
-  constructor() {
+  public ngOnInit() {
+    this.updateCalendar();
   }
 
+  public onDayClick(day: CalendarDay) {
+    if (!this.editing) {
+      this.startDate = day.date;
+      this.editing = true;
+    } else {
+      this.endDate = day.date;
+      this.editing = false;
+    }
+    if (this.endDate < this.startDate) {
+      this.endDate = this.startDate;
+    }
+    this.updateCalendarDays();
+    this.updateDisplayValue();
+  }
 
-  ngOnInit() {
-    this.updateCalendar();
+  public onCalendarBack() {
+    const newStart = moment(this.calendar.startDate)
+      .subtract(1, 'month').toDate();
+    this.updateCalendar(newStart);
+  }
+
+  public onCalendarForward() {
+    const newStart = moment(this.calendar.startDate)
+      .add(1, 'month').toDate();
+    this.updateCalendar(newStart);
+  }
+
+  public getDayCellClass(day: CalendarDay) {
+    return {
+      'in-range': day.inRange,
+      'first-in-range': day.firstInRange,
+      'last-in-range': day.lastInRange,
+      'last-month': day.month < this.calendar.month,
+      'next-month': day.month > this.calendar.month
+    };
   }
 
   private updateCalendar(date = this.endDate) {
     // set calendar params
     this.calendar.month = moment(date).month();
     this.calendar.year = moment(date).year();
-
     // set start and end dates
     this.calendar.startDate = moment(date).startOf('month').toDate();
     this.calendar.endDate = moment(date).endOf('month').toDate();
@@ -66,41 +97,6 @@ export class NgDaterangepickerComponent implements OnInit {
     const startStr = moment(this.startDate).format('ddd, MMM Do');
     const endStr = moment(this.endDate).format('ddd, MMM Do');
     this.calendar.displayVal = `${startStr} - ${endStr}`;
-  }
-
-  public onDayClick(day: CalendarDay) {
-    if (!this.editing) {
-      this.startDate = day.date;
-      this.editing = true;
-    } else {
-      this.endDate = day.date;
-      this.editing = false;
-    }
-    if (this.endDate < this.startDate) {
-      this.endDate = this.startDate;
-    }
-    this.updateCalendarDays();
-    this.updateDisplayValue();
-  }
-
-  public onCalendarBack() {
-    const newStart = moment(this.calendar.startDate).subtract(1, 'month').toDate();
-    this.updateCalendar(newStart);
-  }
-
-  public onCalendarForward() {
-    const newStart = moment(this.calendar.startDate).add(1, 'month').toDate();
-    this.updateCalendar(newStart);
-  }
-
-  public getDayCellClass(day: CalendarDay) {
-    return {
-      'in-range': day.inRange,
-      'first-in-range': day.firstInRange,
-      'last-in-range': day.lastInRange,
-      'last-month': day.month < this.calendar.month,
-      'next-month': day.month > this.calendar.month
-    };
   }
 
 }

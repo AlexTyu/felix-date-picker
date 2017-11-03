@@ -7,7 +7,6 @@
       {{ calendar.displayVal }}
     </div>
   </header>
-
   <nav class="{{cssClassName}}-nav">
     <button class="{{cssClassName}}-nav-btn"
             (click)="onCalendarBack()"><</button>
@@ -18,15 +17,14 @@
     <button class="{{cssClassName}}-nav-btn"
             (click)="onCalendarForward()">></button>
   </nav>
-
   <main>
     <div class="{{cssClassName}}-calendar">
       <div class="{{cssClassName}}-calendar-row">
         <div class="{{cssClassName}}-calendar-cell"
           *ngFor="let day of [0, 1, 2, 3, 4, 5, 6]">
-          <span class="{{cssClassName}}-calendar-cell-value">
+          <div class="{{cssClassName}}-calendar-cell-value">
             {{ day | toWeekday }}
-          </span>
+          </div>
         </div>
       </div>
       <div *ngFor="let week of calendar.days | splitByWeeks"
@@ -35,17 +33,21 @@
             class="{{cssClassName}}-calendar-cell"
             [ngClass]="getDayCellClass(day)"
             (click)="onDayClick(day)">
-            <span class="{{cssClassName}}-calendar-cell-value">
+            <div class="{{cssClassName}}-calendar-cell-value">
               {{ day.dayOfMonth }}
-            </span>
+            </div>
         </div>
       </div>
-
     </div>
   </main>
-
-  <footer>
-
+  <footer class="{{cssClassName}}-footer">
+    <button class="{{cssClassName}}-footer-btn {{cssClassName}}-footer-btn__cancel">
+      Cancel
+    </button>
+    <div class="{{cssClassName}}-footer-fill"></div>
+    <button class="{{cssClassName}}-footer-btn {{cssClassName}}-footer-btn__submit">
+      Ok
+    </button>
   </footer>
 </div>
 

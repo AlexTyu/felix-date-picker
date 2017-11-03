@@ -2,6 +2,15 @@ $mainColor: #17b2eb;
 $tableBackground: #f2f2f2;
 
 .ng-date-range-picker {
+
+  &-container {
+    width: 21em;
+    font-family: sans-serif;
+    border-radius: 1em;
+    overflow: hidden;
+    margin: 10px;
+    box-shadow: 0 1px 3px 2px rgba(0,0,0,0.1);
+  }
   &-header {
     background: $mainColor;
     color: #fff;
@@ -19,100 +28,117 @@ $tableBackground: #f2f2f2;
       font-weight: 300;
     }
   }
-
-}
-
-.ng-date-range-picker-container {
-  width: 21em;
-  font-family: sans-serif;
-}
-
-.ng-date-range-picker-nav {
-  width: 100%;
-  display: flex;
-  &-btn {
-    border: none;
-    background: none;
-    height: 2em;
-    font-size: 1.2em;
-    font-family: monospace;
-    font-weight: 800;
-    transform: scaleY(1.6);
-    line-height: 1.6em;
-    padding: 0;
-    margin: 0;
-    outline: none;
-  }
-  &-content {
-    height: 2em;
-    line-height: 2em;
-    margin: 0;
-    flex-grow: 1;
-    text-align: center;
-    font-family: sans-serif;
-    font-weight: 100;
-  }
-}
-
-.ng-date-range-picker-calendar {
-  width: 21em;
-  font-family: sans-serif;
-  background-color: $tableBackground;
-  font-weight: 100;
-  &-row {
+  &-footer {
     display: flex;
     width: 100%;
-    margin: 5px 0;
-  }
-  &-cell {
-    width: 3em;
-    height: 3em;
-    text-align: center;
-    border-top: 2px transparent solid;
-    border-bottom: 2px transparent solid;
-    font-family: inherit;
-    &.last-month,
-    &.next-month {
-      color: #c1c1c1;
+    padding: 1em;
+    box-sizing: border-box;
+    &-fill {
+      flex-grow: 1;
     }
-
-    &.in-range {
-      border-top: 2px $mainColor solid;
-      border-bottom: 2px $mainColor solid;
-      background-color: lighten($mainColor, 30%);
-    }
-    &.first-in-range {
-      border-left: 1px $mainColor solid;
-      border-radius: 100px 0 0 100px;
-      color: #fff;
-
-    }
-    &.last-in-range {
-      border-right: 1px $mainColor solid;
-      border-radius: 0 100px 100px 0;
-      color: #fff;
-
-    }
-
-    &.first-in-range &-value,
-    &.last-in-range &-value {
-      background-color: $mainColor;
-      border-radius: 100px;
-    }
-
-    &-value {
-      overflow: hidden;
-      width: calc(3em / 0.8);
-      height: calc(3em / 0.8);
-      line-height: calc(3em / 0.8);
-      text-align: center;
+    &-btn {
+      text-transform: uppercase;
       display: block;
-      left: 0;
-      top: 0;
-      font-size: 0.8em;
+      background: transparent;
+      outline: none;
+      border: none;
+      font-size: 1em;
+      font-weight: 100;
+      cursor: pointer;
+      &__submit {
+        color: lighten($mainColor, 10%);
+        &:hover {
+          color: darken($mainColor, 10%);
+        }
+      }
+      &__cancel {
+        color: lighten(black, 70%);
+        &:hover {
+          color:lighten(black, 50%);
+        }
+      }
     }
   }
-
-
+  &-nav {
+    width: 100%;
+    display: flex;
+    &-btn {
+      border: none;
+      background: none;
+      height: 2em;
+      font-size: 1.2em;
+      font-family: monospace;
+      font-weight: 800;
+      transform: scaleY(1.6);
+      line-height: 1.6em;
+      padding: 0;
+      margin: 0;
+      outline: none;
+    }
+    &-content {
+      height: 2em;
+      line-height: 2em;
+      margin: 0;
+      flex-grow: 1;
+      text-align: center;
+      font-family: sans-serif;
+      font-weight: 100;
+    }
+  }
+  &-calendar {
+    width: 21em;
+    font-family: sans-serif;
+    background-color: $tableBackground;
+    font-weight: 100;
+    &-row {
+      display: flex;
+      width: 100%;
+      margin: 5px 0;
+    }
+    &-cell {
+      width: 3em;
+      height: 3em;
+      text-align: center;
+      border-top: 2px transparent solid;
+      border-bottom: 2px transparent solid;
+      font-family: inherit;
+      &.last-month, &.next-month {
+        color: #c1c1c1;
+      }
+      &.in-range {
+        border-top: 2px $mainColor solid;
+        border-bottom: 2px $mainColor solid;
+        background-color: lighten($mainColor, 30%);
+        color: black;
+      }
+      &.first-in-range {
+        border-left: 1px $mainColor solid;
+        border-radius: 100px 0 0 100px;
+      }
+      &.last-in-range {
+        border-right: 1px $mainColor solid;
+        border-radius: 0 100px 100px 0;
+      }
+      &.first-in-range, &.last-in-range {
+        color: white;
+      }
+      &.first-in-range &-value,
+      &.last-in-range &-value {
+        background-color: $mainColor;
+        border-radius: 100px;
+      }
+      &-value {
+        width: calc(3em / 0.8);
+        height: calc(3em / 0.8);
+        line-height: calc(3em / 0.8);
+        left: 0;
+        top: 0;
+        font-size: 0.8em;
+      }
+    }
+  }
 }
+
+
+
 
