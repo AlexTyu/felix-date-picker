@@ -2,7 +2,7 @@
   "name": "ng-daterangepicker",
   "version": "1.0.0",
   "description": "",
-  "main": "ng-datepicker.modeule.ts",
+  "main": "ng-datepicker/ng-datepicker.module.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

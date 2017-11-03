@@ -7,7 +7,7 @@ import * as moment from 'moment';
 export class ToWeekdayPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-    return moment().isoWeekday(value).format("dd");
+    return moment().isoWeekday(value).format('dd');
   }
 
 }
