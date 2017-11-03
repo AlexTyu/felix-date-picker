@@ -1,51 +1,56 @@
-<div class="{{cssClassName}}-container">
-  <header class="{{cssClassName}}-header">
-    <div class="{{cssClassName}}-header-label">
+<button (click)="open = open != true;resetCalendar()">
+  open
+</button>
+<div *ngIf="open" class="{{getRootClass()}}-container">
+  <header class="{{getRootClass()}}-header">
+    <div class="{{getRootClass()}}-header-label">
       Selected Range
     </div>
-    <div class="{{cssClassName}}-header-content">
+    <div class="{{getRootClass()}}-header-content">
       {{ calendar.displayVal }}
     </div>
   </header>
-  <nav class="{{cssClassName}}-nav">
-    <button class="{{cssClassName}}-nav-btn"
+  <nav class="{{getRootClass()}}-nav">
+    <button class="{{getRootClass()}}-nav-btn"
             (click)="onCalendarBack()"><</button>
-    <div class="{{cssClassName}}-nav-content">
+    <div class="{{getRootClass()}}-nav-content">
       {{ calendar.month | toMonthString }}
       {{ calendar.year }}
     </div>
-    <button class="{{cssClassName}}-nav-btn"
+    <button class="{{getRootClass()}}-nav-btn"
             (click)="onCalendarForward()">></button>
   </nav>
   <main>
-    <div class="{{cssClassName}}-calendar">
-      <div class="{{cssClassName}}-calendar-row">
-        <div class="{{cssClassName}}-calendar-cell"
+    <div class="{{getRootClass()}}-calendar">
+      <div class="{{getRootClass()}}-calendar-row">
+        <div class="{{getRootClass()}}-calendar-cell"
           *ngFor="let day of [0, 1, 2, 3, 4, 5, 6]">
-          <div class="{{cssClassName}}-calendar-cell-value">
+          <div class="{{getRootClass()}}-calendar-cell-value">
             {{ day | toWeekday }}
           </div>
         </div>
       </div>
       <div *ngFor="let week of calendar.days | splitByWeeks"
-           class="{{cssClassName}}-calendar-row">
+           class="{{getRootClass()}}-calendar-row">
         <div *ngFor="let day of week"
-            class="{{cssClassName}}-calendar-cell"
+            class="{{getRootClass()}}-calendar-cell"
             [ngClass]="getDayCellClass(day)"
             (click)="onDayClick(day)">
-            <div class="{{cssClassName}}-calendar-cell-value">
+            <div class="{{getRootClass()}}-calendar-cell-value">
               {{ day.dayOfMonth }}
             </div>
         </div>
       </div>
     </div>
   </main>
-  <footer class="{{cssClassName}}-footer">
-    <button class="{{cssClassName}}-footer-btn {{cssClassName}}-footer-btn__cancel">
+  <footer class="{{getRootClass()}}-footer">
+    <button class="{{getRootClass()}}-footer-btn {{getRootClass()}}-footer-btn__cancel"
+            (click)="open = false;onCancelClick()">
       Cancel
     </button>
-    <div class="{{cssClassName}}-footer-fill"></div>
-    <button class="{{cssClassName}}-footer-btn {{cssClassName}}-footer-btn__submit">
+    <div class="{{getRootClass()}}-footer-fill"></div>
+    <button class="{{getRootClass()}}-footer-btn {{getRootClass()}}-footer-btn__submit"
+            (click)="onApplyClick()">
       Ok
     </button>
   </footer>

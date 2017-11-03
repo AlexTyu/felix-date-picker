@@ -3,6 +3,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CalendarDay } from './ng-date-range-picker-calendar-day.interface';
 import { CalendarView } from './ng-date-range-picker-calendar-view.interface';
 
+const CSS_CLASS_NAME: string = 'ng-date-range-picker';
+
 @Component({
   selector: 'app-ng-daterangepicker',
   templateUrl: './ng-daterangepicker.component.html',
@@ -11,16 +13,36 @@ import { CalendarView } from './ng-date-range-picker-calendar-view.interface';
 
 export class NgDaterangepickerComponent implements OnInit {
 
-  @Input() startDate: Date = new Date('2017/10/05');
-  @Output() startDateChange: EventEmitter<Date> = new EventEmitter();
-  @Input() endDate: Date = new Date('2017/10/15');
-  @Output() endDateChange: EventEmitter<Date> = new EventEmitter();
+  @Input() startDate: Date = new Date();
+  @Input() endDate:   Date = new Date();
 
-  editing = false;
-  calendar: CalendarView = {} as CalendarView;
-  cssClassName: string = 'ng-date-range-picker';
+  @Output() startDateChange:  EventEmitter<Date> = new EventEmitter();
+  @Output() endDateChange:    EventEmitter<Date> = new EventEmitter();
+
+  private _startDate: Date = new Date();
+  private _endDate:   Date = new Date();
+  private editing: boolean = false;
+
+  public open: boolean = false;
+  public calendar: CalendarView = {} as CalendarView;
+
+  public resetCalendar() {
+    // console.log(this._startDate, this.startDate);
+  }
+
+  public onCancelClick() {
+    this.resetDates();
+    this.updateCalendar();
+  }
+
+  public onApplyClick() {
+    this.updateInitialDates();
+    this.publishUpdates();
+    this.open = false;
+  }
 
   public ngOnInit() {
+    this.updateInitialDates();
     this.updateCalendar();
   }
 
@@ -37,8 +59,6 @@ export class NgDaterangepickerComponent implements OnInit {
     }
     this.updateCalendarDays();
     this.updateDisplayValue();
-    this.startDateChange.emit(this.startDate);
-    this.endDateChange.emit(this.endDate);
   }
 
   public onCalendarBack() {
@@ -51,6 +71,10 @@ export class NgDaterangepickerComponent implements OnInit {
     const newStart = moment(this.calendar.startDate)
       .add(1, 'month').toDate();
     this.updateCalendar(newStart);
+  }
+
+  public getRootClass() {
+    return CSS_CLASS_NAME;
   }
 
   public getDayCellClass(day: CalendarDay) {
@@ -66,10 +90,10 @@ export class NgDaterangepickerComponent implements OnInit {
   private updateCalendar(date = this.endDate) {
     // set calendar params
     this.calendar.month = moment(date).month();
-    this.calendar.year = moment(date).year();
+    this.calendar.year  = moment(date).year();
     // set start and end dates
     this.calendar.startDate = moment(date).startOf('month').toDate();
-    this.calendar.endDate = moment(date).endOf('month').toDate();
+    this.calendar.endDate   = moment(date).endOf('month').toDate();
     // update display string
     this.updateDisplayValue();
     this.updateCalendarDays();
@@ -77,30 +101,55 @@ export class NgDaterangepickerComponent implements OnInit {
 
   private updateCalendarDays() {
     // include additional days to fill weeks
-    let startDate = moment(this.calendar.startDate)
-      .subtract(this.calendar.startDate.getDay(), 'days').toDate();
     const endDate = moment(this.calendar.endDate)
       .add(6 - this.calendar.endDate.getDay(), 'days').toDate();
+
+    let date = moment(this.calendar.startDate)
+      .subtract(this.calendar.startDate.getDay(), 'days').toDate();
+
     this.calendar.days = [];
-    while (startDate < endDate) {
-      this.calendar.days.push({
-        date: startDate,
-        dayOfMonth: startDate.getDate(),
-        month: startDate.getMonth(),
-        year: startDate.getFullYear(),
-        dayOfWeek: startDate.getDay(),
-        firstInRange: moment(startDate).isSame(this.startDate),
-        lastInRange: moment(startDate).isSame(this.endDate),
-        inRange: startDate >= this.startDate && startDate <= this.endDate
-      } as CalendarDay);
-      startDate = moment(startDate).add(1, 'day').toDate();
+    while (date < endDate) {
+      this.calendar.days.push(this.getCalendarDay(date));
+      date = moment(date).add(1, 'day').toDate();
     }
+  }
+
+  private getCalendarDay(date: Date) {
+    const firstInRange = moment(date).isSame(this.startDate);
+    const lastInRange = moment(date).isSame(this.endDate);
+    const inRange = firstInRange || lastInRange
+      || moment(date).isBetween(this.startDate, this.endDate);
+    return {
+      date:         date,
+      dayOfMonth:   date.getDate(),
+      month:        date.getMonth(),
+      year:         date.getFullYear(),
+      dayOfWeek:    date.getDay(),
+      firstInRange: firstInRange,
+      lastInRange:  lastInRange,
+      inRange:      inRange
+    } as CalendarDay;
   }
 
   private updateDisplayValue() {
     const startStr = moment(this.startDate).format('ddd, MMM Do');
     const endStr = moment(this.endDate).format('ddd, MMM Do');
     this.calendar.displayVal = `${startStr} - ${endStr}`;
+  }
+
+  private updateInitialDates() {
+    this._startDate = new Date(moment(this.startDate).toDate());
+    this._endDate   = new Date(moment(this.endDate).toDate());
+  }
+
+  private resetDates() {
+    this.startDate  = new Date(moment(this._startDate).toDate());
+    this.endDate    = new Date(moment(this._endDate).toDate());
+  }
+
+  private publishUpdates() {
+    this.startDateChange.emit(this.startDate);
+    this.endDateChange.emit(this.endDate);
   }
 
 }
