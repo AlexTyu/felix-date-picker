@@ -1,40 +1,53 @@
-<header>
-  <h3>Timeframe</h3>
-</header>
+<div class="{{cssClassName}}-container">
+  <header class="{{cssClassName}}-header">
+    <div class="{{cssClassName}}-header-label">
+      Selected Range
+    </div>
+    <div class="{{cssClassName}}-header-content">
+      {{ calendar.displayVal }}
+    </div>
+  </header>
 
-<nav>
-  <button (click)="onCalendarBack()">back</button>
-  {{ calendar.month | toMonthString }}
-  {{ calendar.year }}
-  <button (click)="onCalendarForward()">forward</button>
+  <nav class="{{cssClassName}}-nav">
+    <button class="{{cssClassName}}-nav-btn"
+            (click)="onCalendarBack()"><</button>
+    <div class="{{cssClassName}}-nav-content">
+      {{ calendar.month | toMonthString }}
+      {{ calendar.year }}
+    </div>
+    <button class="{{cssClassName}}-nav-btn"
+            (click)="onCalendarForward()">></button>
+  </nav>
 
-</nav>
+  <main>
+    <div class="{{cssClassName}}-calendar">
+      <div class="{{cssClassName}}-calendar-row">
+        <div class="{{cssClassName}}-calendar-cell"
+          *ngFor="let day of [0, 1, 2, 3, 4, 5, 6]">
+          <span class="{{cssClassName}}-calendar-cell-value">
+            {{ day | toWeekday }}
+          </span>
+        </div>
+      </div>
+      <div *ngFor="let week of calendar.days | splitByWeeks"
+           class="{{cssClassName}}-calendar-row">
+        <div *ngFor="let day of week"
+            class="{{cssClassName}}-calendar-cell"
+            [ngClass]="getDayCellClass(day)"
+            (click)="onDayClick(day)">
+            <span class="{{cssClassName}}-calendar-cell-value">
+              {{ day.dayOfMonth }}
+            </span>
+        </div>
+      </div>
 
-<main>
-  <table cellpadding="0" cellspacing="0">
-    <thead>
-    <tr>
-      <td *ngFor="let day of [0, 1, 2, 3, 4, 5, 6]">
-        {{ day | toWeekday }}
-      </td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let week of calendar.days | splitByWeeks">
-      <td *ngFor="let day of week"
-          (click)="onDayClick(day)"
-          [ngClass]="{ 'in-range': day.inRange, 'first-in-range': day.firstInRange, 'last-in-range': day.lastInRange}">
-        {{ day.dayOfMonth }}
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</main>
+    </div>
+  </main>
 
-<footer>
+  <footer>
 
-</footer>
-
+  </footer>
+</div>
 
 
 
