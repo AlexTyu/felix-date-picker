@@ -15,5 +15,8 @@
   "bugs": {
     "url": "git+https://github.com/sergey-samusenko/felix-date-picker/issues"
   },
-  "homepage": "git+https://github.com/sergey-samusenko/felix-date-picker#readme"
+  "homepage": "git+https://github.com/sergey-samusenko/felix-date-picker#readme",
+  "dependencies": {
+    "moment": "^2.19.1"
+  }
 }
