@@ -1,14 +1,15 @@
 import * as moment from 'moment';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 import { CalendarDay } from './ng-date-range-picker-calendar-day.interface';
 import { CalendarView } from './ng-date-range-picker-calendar-view.interface';
 
 const CSS_CLASS_NAME: string = 'ng-date-range-picker';
+const DISPLAY_FORMAT: string = 'ddd, MMM Do';
 
 @Component({
   selector: 'app-ng-daterangepicker',
   templateUrl: './ng-daterangepicker.component.html',
-  styleUrls: ['./ng-daterangepicker.component.scss']
+  styleUrls: ['./ng-daterangepicker.component.scss'],
 })
 
 export class NgDaterangepickerComponent implements OnInit {
@@ -21,7 +22,8 @@ export class NgDaterangepickerComponent implements OnInit {
 
   private _startDate: Date = new Date();
   private _endDate:   Date = new Date();
-  private editing: boolean = false;
+  private editing:    boolean = false;
+  private range:      boolean = false;
 
   public open: boolean = false;
   public calendar: CalendarView = {} as CalendarView;
@@ -50,7 +52,7 @@ export class NgDaterangepickerComponent implements OnInit {
   }
 
   public onDayClick(day: CalendarDay) {
-    if (!this.editing && day.date < this.endDate) {
+    if (!this.editing) {
       this.startDate = day.date;
       this.editing = true;
     } else {
@@ -62,6 +64,18 @@ export class NgDaterangepickerComponent implements OnInit {
     }
     this.updateCalendarDays();
     this.updateDisplayValue();
+  }
+
+  public onDayMouseOver(day: CalendarDay, event) {
+    event.preventDefault();
+    event.stopPropagation();
+    if (!this.editing) { return false; }
+    if (day.date <= this.startDate) {
+    } else {
+      this.endDate = day.date;
+    }
+    this.updateCalendarDays();
+
   }
 
   public onCalendarBack() {
@@ -136,8 +150,8 @@ export class NgDaterangepickerComponent implements OnInit {
   }
 
   private updateDisplayValue() {
-    const startStr = moment(this.startDate).format('ddd, MMM Do');
-    const endStr = moment(this.endDate).format('ddd, MMM Do');
+    const startStr  = moment(this.startDate).format(DISPLAY_FORMAT);
+    const endStr    = moment(this.endDate).format(DISPLAY_FORMAT);
     this.calendar.displayVal = `${startStr} - ${endStr}`;
   }
 

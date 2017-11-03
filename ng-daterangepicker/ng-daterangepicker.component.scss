@@ -108,6 +108,7 @@ $tableBackground: #f2f2f2;
       border-top: calc(1em / 8) transparent solid;
       border-bottom: calc(1em / 8) transparent solid;
       font-family: inherit;
+      pointer-events: all;
       &.last-month, &.next-month {
         color: #c1c1c1;
       }
