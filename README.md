@@ -2,13 +2,17 @@
 
 ## Installation
 
+```bash
+$ npm install https://github.com/sergey-samusenko/felix-date-picker --save
+```
+
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { NgDaterangepickerModule } from "ng-daterangepicker";
+import { FelixDatePickerModule } from "felix-date-picker";
 
 import { AppComponent } from './app.component';
 
@@ -21,7 +25,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    NgDaterangepickerModule
+    FelixDatePickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -33,5 +37,5 @@ export class AppModule { }
 ## Usage
 
 ```html
-<app-ng-daterangepicker [(startDate)]="startDate" [(endDate)]="endDate"></app-ng-daterangepicker>
+<fx-date-picker [(startDate)]="startDate" [(endDate)]="endDate"></fx-date-picker>
 ```
