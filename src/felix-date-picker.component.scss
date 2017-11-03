@@ -1,0 +1,154 @@
+$mainColor: #17b2eb;
+$tableBackground: #f2f2f2;
+
+.ng-date-range-picker {
+  &-container {
+    width: 21em;
+    font-family: sans-serif;
+    border-radius: 1em;
+    overflow: hidden;
+    margin: 10px;
+    box-shadow: 0 1px 3px 2px rgba(0,0,0,0.1);
+  }
+  &-header {
+    background: $mainColor;
+    color: #fff;
+    padding: 1em;
+    font-family: inherit;
+    &-label {
+      font-size: 0.9em;
+      font-weight: 300;
+      opacity: 0.8;
+    }
+    &-content {
+      font-size: 1.4em;
+      text-align: justify;
+      white-space: nowrap;
+      font-weight: 300;
+    }
+    &-label +  &-content {
+      margin-top: 0.625em;
+    }
+  }
+  &-footer {
+    display: flex;
+    width: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+    &-fill {
+      flex-grow: 1;
+    }
+    &-btn {
+      text-transform: uppercase;
+      display: block;
+      background: transparent;
+      outline: none;
+      border: none;
+      font-size: 1em;
+      font-weight: 100;
+      cursor: pointer;
+      &__submit {
+        color: lighten($mainColor, 10%);
+        &:hover {
+          color: darken($mainColor, 10%);
+        }
+      }
+      &__cancel {
+        color: lighten(black, 70%);
+        &:hover {
+          color:lighten(black, 50%);
+        }
+      }
+    }
+  }
+  &-nav {
+    width: 100%;
+    display: flex;
+    padding: 0 1em;
+    box-sizing: border-box;
+    &-btn {
+      border: none;
+      background: none;
+      height: 2em;
+      font-size: 1.2em;
+      font-family: monospace;
+      font-weight: 800;
+      transform: scaleY(1.6);
+      line-height: 1.5em;
+      padding: 0;
+      margin: 0;
+      outline: none;
+    }
+    &-content {
+      height: 2em;
+      line-height: 2em;
+      margin: 0;
+      flex-grow: 1;
+      text-align: center;
+      font-family: sans-serif;
+      font-weight: 100;
+    }
+  }
+  &-calendar {
+    width: 21em;
+    font-family: sans-serif;
+    background-color: $tableBackground;
+    font-weight: 100;
+    &-row {
+      display: flex;
+      width: 100%;
+    }
+    &-row + &-row {
+      margin-top: calc(1em / 4);
+    }
+    &-cell {
+      width: 3em;
+      height: 3em;
+      text-align: center;
+      border-top: calc(1em / 8) transparent solid;
+      border-bottom: calc(1em / 8) transparent solid;
+      font-family: inherit;
+      pointer-events: all;
+      &.last-month, &.next-month {
+        color: #c1c1c1;
+      }
+      &.in-range {
+        border-top: calc(1em / 8) $mainColor solid;
+        border-bottom: calc(1em / 8) $mainColor solid;
+        background-color: lighten($mainColor, 30%);
+        color: black;
+      }
+      &.first-in-range {
+        border-left: calc(1em / 8) $mainColor solid;
+        border-radius: 3em 0 0 3em;
+      }
+      &.last-in-range {
+        border-right: calc(1em / 8) $mainColor solid;
+        border-radius: 0 3em 3em 0;
+      }
+      &.only-selected {
+        border-radius: 3em;
+      }
+      &.first-in-range, &.last-in-range {
+        color: white;
+      }
+      &.first-in-range &-value,
+      &.last-in-range &-value {
+        background-color: $mainColor;
+        border-radius: 3em;
+      }
+      &-value {
+        width: calc(3em / 0.8);
+        height: calc(3em / 0.8);
+        line-height: calc(3em / 0.8);
+        left: 0;
+        top: 0;
+        font-size: 0.8em;
+      }
+    }
+  }
+}
+
+
+
+

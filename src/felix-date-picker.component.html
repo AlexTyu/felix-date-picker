@@ -1,0 +1,60 @@
+<button (click)="open = open != true;resetCalendar()">
+  {{ calendar.displayVal }}
+</button>
+<div *ngIf="open" class="{{getRootClass()}}-container">
+  <header class="{{getRootClass()}}-header">
+    <div class="{{getRootClass()}}-header-label">
+      Selected Range
+    </div>
+    <div class="{{getRootClass()}}-header-content">
+      {{ calendar.displayVal }}
+    </div>
+  </header>
+  <nav class="{{getRootClass()}}-nav">
+    <button class="{{getRootClass()}}-nav-btn"
+            (click)="onCalendarBack()"><</button>
+    <div class="{{getRootClass()}}-nav-content">
+      {{ calendar.month | toMonthString }}
+      {{ calendar.year }}
+    </div>
+    <button class="{{getRootClass()}}-nav-btn"
+            (click)="onCalendarForward()">></button>
+  </nav>
+  <main>
+    <div class="{{getRootClass()}}-calendar">
+      <div class="{{getRootClass()}}-calendar-row">
+        <div class="{{getRootClass()}}-calendar-cell"
+          *ngFor="let day of [0, 1, 2, 3, 4, 5, 6]">
+          <div class="{{getRootClass()}}-calendar-cell-value">
+            {{ day | toWeekday }}
+          </div>
+        </div>
+      </div>
+      <div *ngFor="let week of calendar.days | splitByWeeks"
+           class="{{getRootClass()}}-calendar-row">
+        <div *ngFor="let day of week"
+            class="{{getRootClass()}}-calendar-cell"
+            [ngClass]="getDayCellClass(day)"
+            (mousemove)="onDayMouseOver(day, $event)">
+            <div (click)="onDayClick(day)" class="{{getRootClass()}}-calendar-cell-value">
+              {{ day.dayOfMonth }}
+            </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="{{getRootClass()}}-footer">
+    <button class="{{getRootClass()}}-footer-btn {{getRootClass()}}-footer-btn__cancel"
+            (click)="open = false;onCancelClick()">
+      Cancel
+    </button>
+    <div class="{{getRootClass()}}-footer-fill"></div>
+    <button class="{{getRootClass()}}-footer-btn {{getRootClass()}}-footer-btn__submit"
+            (click)="onApplyClick()">
+      Ok
+    </button>
+  </footer>
+</div>
+
+
+
