@@ -42,3 +42,8 @@ export class AppModule { }
 ```html
 <fx-date-picker [(startDate)]="startDate" [(endDate)]="endDate"></fx-date-picker>
 ```
+
+## To do
+- Clicks on dates may be buggy
+- Fix mobile issues
+- Add single date option
