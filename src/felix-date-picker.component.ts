@@ -52,30 +52,13 @@ export class FelixDatePickerComponent implements OnInit {
   }
 
   public onDayClick(day: CalendarDay) {
-    if (!this.editing) {
-      this.startDate = day.date;
-      this.editing = true;
-    } else {
-      this.endDate = day.date;
-      this.editing = false;
-    }
-    if (this.endDate < this.startDate) {
-      this.endDate = this.startDate;
-    }
+
+    if (!this.editing)  { this.startDate = day.date }
+    else                { this.endDate = day.date }
+    this.editing = !this.editing;
+    this.validateDates();
     this.updateCalendarDays();
     this.updateDisplayValue();
-  }
-
-  public onDayMouseOver(day: CalendarDay, event) {
-    event.preventDefault();
-    event.stopPropagation();
-    if (!this.editing) { return false; }
-    if (day.date <= this.startDate) {
-    } else {
-      this.endDate = day.date;
-    }
-    this.updateCalendarDays();
-
   }
 
   public onCalendarBack() {
@@ -163,6 +146,12 @@ export class FelixDatePickerComponent implements OnInit {
   private resetDates() {
     this.startDate  = new Date(moment(this._startDate).toDate());
     this.endDate    = new Date(moment(this._endDate).toDate());
+  }
+
+  private validateDates() {
+    if (this.endDate < this.startDate) {
+      this.endDate = this.startDate;
+    }
   }
 
   private publishUpdates() {

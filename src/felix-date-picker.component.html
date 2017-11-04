@@ -34,8 +34,7 @@
            class="{{getRootClass()}}-calendar-row">
         <div *ngFor="let day of week"
             class="{{getRootClass()}}-calendar-cell"
-            [ngClass]="getDayCellClass(day)"
-            (mousemove)="onDayMouseOver(day, $event)">
+            [ngClass]="getDayCellClass(day)">
             <div (click)="onDayClick(day)" class="{{getRootClass()}}-calendar-cell-value">
               {{ day.dayOfMonth }}
             </div>
