@@ -8,7 +8,7 @@ Simple date picker for Angular. Development in progress.
 ## Installation
 
 ```bash
-$ npm install https://github.com/sergey-samusenko/felix-date-picker --save
+$ npm install felix-date-picker
 ```
 
 ```typescript

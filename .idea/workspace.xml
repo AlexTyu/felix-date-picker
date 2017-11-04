@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17933234-306f-4106-804c-ae4b7f258aa1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/package.json" afterPath="$PROJECT_DIR$/example/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,7 +21,7 @@
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
                 <marker date="1509761273995" expanded="true" signature="561:568" ph="{&quot;@angular/common&quot;: &quot;^4.0.0&quot;...}" />
               </folding>
@@ -29,18 +29,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="148">
-                <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <first_editor relative-caret-position="190">
+                <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
                 <folding>
-                  <marker date="1509761738911" expanded="true" signature="339:631" ph="..." />
-                  <marker date="1509761738911" expanded="true" signature="644:828" ph="{...}" />
-                  <marker date="1509761738911" expanded="true" signature="662:684" ph="[...]" />
-                  <marker date="1509761738911" expanded="true" signature="697:780" ph="[...]" />
-                  <marker date="1509761738911" expanded="true" signature="853:856" ph="{...}" />
+                  <marker date="1509761937696" expanded="true" signature="296:588" ph="..." />
+                  <marker date="1509761937696" expanded="true" signature="601:785" ph="{...}" />
+                  <marker date="1509761937696" expanded="true" signature="619:641" ph="[...]" />
+                  <marker date="1509761937696" expanded="true" signature="654:737" ph="[...]" />
+                  <marker date="1509761937696" expanded="true" signature="810:813" ph="{...}" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -58,6 +58,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="411">
+              <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="main.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/src/main.ts">
           <provider selected="true" editor-type-id="text-editor">
@@ -66,16 +76,6 @@
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/example/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -92,8 +92,8 @@
         <option value="$PROJECT_DIR$/example/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/example/package.json" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -263,7 +263,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1283000" />
+    <option name="totallyTimeSpent" value="1410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1030" y="0" width="890" height="1200" extended-state="6" />
@@ -343,6 +343,13 @@
         <option value="$PROJECT_DIR$/example/node_modules/reflect-metadata/test/reflect-deletemetadata.js.map" />
         <option value="$PROJECT_DIR$/example/node_modules/reflect-metadata/test/reflect-hasmetadata.js" />
         <option value="$PROJECT_DIR$/example/node_modules/reflect-metadata/test/reflect-hasmetadata.js.map" />
+        <option value="$PROJECT_DIR$/example/node_modules/felix-date-picker/index.js" />
+        <option value="$PROJECT_DIR$/example/node_modules/felix-date-picker/src/felix-date-picker-calendar-day.interface.js" />
+        <option value="$PROJECT_DIR$/example/node_modules/felix-date-picker/src/felix-date-picker.component.js" />
+        <option value="$PROJECT_DIR$/example/node_modules/felix-date-picker/src/felix-date-picker-calendar-view.interface.js" />
+        <option value="$PROJECT_DIR$/example/node_modules/felix-date-picker/src/pipes/to-weekday.pipe.js" />
+        <option value="$PROJECT_DIR$/example/node_modules/felix-date-picker/src/pipes/split-by-weeks.pipe.js" />
+        <option value="$PROJECT_DIR$/example/node_modules/felix-date-picker/src/pipes/to-month-string.pipe.js" />
       </list>
     </option>
   </component>
@@ -634,6 +641,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <marker date="1509761273995" expanded="true" signature="561:568" ph="{&quot;@angular/common&quot;: &quot;^4.0.0&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/example/src/main.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -644,38 +661,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/example/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <marker date="1509761273995" expanded="true" signature="561:568" ph="{&quot;@angular/common&quot;: &quot;^4.0.0&quot;...}" />
-          </folding>
+        <state relative-caret-position="411">
+          <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="148">
-            <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
             <folding>
-              <marker date="1509761738911" expanded="true" signature="339:631" ph="..." />
-              <marker date="1509761738911" expanded="true" signature="644:828" ph="{...}" />
-              <marker date="1509761738911" expanded="true" signature="662:684" ph="[...]" />
-              <marker date="1509761738911" expanded="true" signature="697:780" ph="[...]" />
-              <marker date="1509761738911" expanded="true" signature="853:856" ph="{...}" />
+              <marker date="1509761937696" expanded="true" signature="296:588" ph="..." />
+              <marker date="1509761937696" expanded="true" signature="601:785" ph="{...}" />
+              <marker date="1509761937696" expanded="true" signature="619:641" ph="[...]" />
+              <marker date="1509761937696" expanded="true" signature="654:737" ph="[...]" />
+              <marker date="1509761937696" expanded="true" signature="810:813" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
