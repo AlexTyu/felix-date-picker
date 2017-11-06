@@ -1,10 +1,23 @@
+<h1>Single Date</h1>
+  <input #dateOne fx-date-picker [(date)]="date" />
+<span>selected date: {{ date }}</span>
+
+
 <div>
   <label>
-    Start Date: <input [(ngModel)]="startDate" />
-  </label>
-  <label>
-    End Date: <input [(ngModel)]="endDate" />
+    Date: <input [(ngModel)]="date" />
   </label>
 </div>
 
-<fx-date-picker [(startDate)]="startDate" [(endDate)]="endDate"></fx-date-picker>
+<fx-date-picker [(date)]="date"></fx-date-picker>
+
+<hr/>
+
+<h1>Date Range</h1>
+<input fx-date-range-picker  [(startDate)]="startDate" [(endDate)]="endDate"/>
+
+
+
+<fx-date-range-picker [(startDate)]="startDate" [(endDate)]="endDate"></fx-date-range-picker>
+
+

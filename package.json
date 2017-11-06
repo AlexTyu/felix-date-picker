@@ -17,6 +17,7 @@
   },
   "homepage": "git+https://github.com/sergey-samusenko/felix-date-picker#readme",
   "dependencies": {
-    "moment": "^2.19.1"
+    "moment": "^2.19.1",
+    "typescript": "^2.6.1"
   }
 }

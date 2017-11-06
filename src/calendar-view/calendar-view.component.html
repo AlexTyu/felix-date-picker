@@ -1,0 +1,20 @@
+<div class="{{getRootClass()}}-calendar">
+    <div class="{{getRootClass()}}-calendar-row">
+        <div class="{{getRootClass()}}-calendar-cell"
+             *ngFor="let day of [0, 1, 2, 3, 4, 5, 6]">
+            <div class="{{getRootClass()}}-calendar-cell-value">
+                {{ day | toWeekday }}
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let week of calendar.days | splitByWeeks"
+         class="{{getRootClass()}}-calendar-row">
+        <div *ngFor="let day of week"
+             class="{{getRootClass()}}-calendar-cell"
+             [ngClass]="getDayCellClass(day)">
+            <div (click)="onDayClick(day)" class="{{getRootClass()}}-calendar-cell-value">
+                {{ day.dayOfMonth }}
+            </div>
+        </div>
+    </div>
+</div>

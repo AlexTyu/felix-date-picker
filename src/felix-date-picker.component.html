@@ -1,7 +1,7 @@
-<button (click)="open = open != true;resetCalendar()">
+<button (click)="openMenu()">
   {{ calendar.displayVal }}
 </button>
-<div *ngIf="open" class="{{getRootClass()}}-container">
+<div class="{{getRootClass()}}-container" #container>
   <header class="{{getRootClass()}}-header">
     <div class="{{getRootClass()}}-header-label">
       Selected Range
@@ -21,35 +21,16 @@
             (click)="onCalendarForward()">></button>
   </nav>
   <main>
-    <div class="{{getRootClass()}}-calendar">
-      <div class="{{getRootClass()}}-calendar-row">
-        <div class="{{getRootClass()}}-calendar-cell"
-          *ngFor="let day of [0, 1, 2, 3, 4, 5, 6]">
-          <div class="{{getRootClass()}}-calendar-cell-value">
-            {{ day | toWeekday }}
-          </div>
-        </div>
-      </div>
-      <div *ngFor="let week of calendar.days | splitByWeeks"
-           class="{{getRootClass()}}-calendar-row">
-        <div *ngFor="let day of week"
-            class="{{getRootClass()}}-calendar-cell"
-            [ngClass]="getDayCellClass(day)">
-            <div (click)="onDayClick(day)" class="{{getRootClass()}}-calendar-cell-value">
-              {{ day.dayOfMonth }}
-            </div>
-        </div>
-      </div>
-    </div>
+    <calendar-view [calendar]="calendar" [range]="range" [(dates)]="dates"></calendar-view>
   </main>
   <footer class="{{getRootClass()}}-footer">
     <button class="{{getRootClass()}}-footer-btn {{getRootClass()}}-footer-btn__cancel"
-            (click)="open = false;onCancelClick()">
+            (click)="onCancel()">
       Cancel
     </button>
     <div class="{{getRootClass()}}-footer-fill"></div>
     <button class="{{getRootClass()}}-footer-btn {{getRootClass()}}-footer-btn__submit"
-            (click)="onApplyClick()">
+            (click)="onApply()">
       Ok
     </button>
   </footer>

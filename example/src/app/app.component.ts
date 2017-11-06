@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  date = new Date(Date.now())
+  startDate = new Date('2017/12/01');
+
+  endDate = new Date(Date.parse('2017/12/31'));
+
 }
