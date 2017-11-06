@@ -5,6 +5,7 @@
   },
   "apps": [
     {
+      "baseHref": "./",
       "root": "src",
       "outDir": "dist",
       "assets": [
